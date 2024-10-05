@@ -4,84 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube to MP3 Converter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            margin: 0;
-            padding: 50px;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: auto;
-        }
-
-        input[type="text"], button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-
-        button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
-    </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Convert YouTube to MP3</h1>
-
-        <label for="youtube-url">Paste YouTube Video URL</label>
-        <input type="text" id="youtube-url" placeholder="Enter YouTube video link here">
-
-        <button id="convert-btn">Convert to MP3</button>
-        <button id="download-btn" style="display:none;">Download MP3</button>
-
-        <p id="status-message"></p>
-    </div>
-
-    <script>
-        document.getElementById("convert-btn").addEventListener("click", function() {
-            const url = document.getElementById("youtube-url").value;
-            if (!url) {
-                alert("Please enter a YouTube video URL.");
-                return;
-            }
-
-            document.getElementById("status-message").innerText = "Converting...";
-            
-            // Aquí debes hacer una llamada a tu backend o a un servicio API para convertir el video a MP3.
-            // Una vez que la conversión esté lista, muestra el botón de descarga.
-
-            setTimeout(() => {
-                document.getElementById("status-message").innerText = "Conversion completed!";
-                document.getElementById("download-btn").style.display = "block";
-            }, 2000);  // Simula el tiempo de conversión con un delay de 2 segundos.
-        });
-
-        document.getElementById("download-btn").addEventListener("click", function() {
-            // Aquí debes manejar la descarga del archivo MP3 generado.
-            alert("Starting MP3 download...");
-            // window.location.href = 'your-backend-url-to-download-mp3'; // Esto debería apuntar a tu archivo MP3.
-        });
-    </script>
-
+    <body>
+        <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+        <a class="navbar-brand" href="https://yt8s.com/es"><img src="https://yt8s.com/img/logo-yt-long.png" alt="YT8S.COM logo" width="180"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a href="https://yt8s.com/es" class="nav-link" aria-current="page">Inicio</a></li>
+        </ul>
+        <ul class="navbar-nav float-lg-end">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="language" data-bs-toggle="dropdown" aria-expanded="false">Español</a>
+        <ul class="dropdown-menu" aria-labelledby="language">
+        <li><a class="dropdown-item" href="https://yt8s.com/en">English</a></li>
+        <li><a class="dropdown-item" href="https://yt8s.com/es">Español</a></li>
+        <li><a class="dropdown-item" href="https://yt8s.com/pt">Português</a></li>
+        <li><a class="dropdown-item" href="https://yt8s.com/fr">Français</a></li>
+        <li><a class="dropdown-item" href="https://yt8s.com/it">Italiano</a></li>
+        <li><a class="dropdown-item" href="https://yt8s.com/pl">Polska</a></li>
+        <li><a class="dropdown-item" href="https://yt8s.com/hi">हिन्दी / Hindī</a></li>
+        <li><a class="dropdown-item" href="https://yt8s.com/id">Indonesian</a></li>
+        <li><a class="dropdown-item" href="https://yt8s.com/vi">Tiếng Việt</a></li>
+        <li><a class="dropdown-item" href="https://yt8s.com/ru">Русский</a></li>
+        <li><a class="dropdown-item" href="https://yt8s.com/ro">Românesc</a></li>
+        </ul>
+        </li>
+        </ul>
+        </div>
+        </div>
+        </nav>
+        <div class="row mt-3">
+        <div class="col-12 offset-lg-2 col-lg-8">
+        <div class="border shadow-lg p-5 rounded-2 text-center">
+        <h1 class="display-6 fw-bold lh-1">Convertidor gratuito de Youtube a MP3</h1>
+        <p class="lead">Conversión y descarga de vídeos de YouTube a MP3</p>
+        <form>
+        <div style="height: 66px;">
+        <input class="form-control form-control-lg" type="text" placeholder="Youtube url, example: https://www.youtube.com/watch?v=9EJIH8kxTn8" name="url" id="url">
+        <div class="progress d-none" id="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+        </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg px-4 fw-bold mt-3" style="width: 280px;" id="convert">Convierte ahora</button>
+        </form>
+        </div>
+        <div class="intro mt-5">
+        </div>
+        </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://yt8s.com/js/bootstrap.min.js"></script>
+        <script src="https://yt8s.com/js/script.min.js?v=1"></script>
+        
+        
+        </body>
 </body>
 </html>
